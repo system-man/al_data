@@ -1,0 +1,61 @@
+
+u are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
+
+The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
+
+Example 1:
+
+Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+Output: [-1,3,-1]
+Explanation:
+    For number 4 in the first array, you cannot find the next greater number for it in the second array, so output -1.
+    For number 1 in the first array, the next greater number for it in the second array is 3.
+    For number 2 in the first array, there is no next greater number for it in the second array, so output -1.
+Example 2:
+Input: nums1 = [2,4], nums2 = [1,2,3,4].
+Output: [3,-1]
+Explanation:
+    For number 2 in the first array, the next greater number for it in the second array is 3.
+    For number 4 in the first array, there is no next greater number for it in the second array, so output -1.
+Note:
+    All elements in nums1 and nums2 are unique.
+    The length of both nums1 and nums2 would not exceed 1000.
+
+class Solution(object):
+    def nextGreaterElement(self, findNums, nums):
+
+        """
+        :type findNums: List[int]
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        hsah={}
+        list=[]
+        result=[]
+        for x in nums:                        #对后一个list处理作出一个hash表
+            if list is None:                  #
+                list.append(x)
+            elif x <= list[-1]:
+                list.append(x)
+            else:
+                while list and x > list[-1]:  #保证了如例子[6,5,4,8]  若8为x 则有 {4:8 ,5:8 ,6:8}，做成表后list中同时去掉654,添加了8
+                    hsah(list.pop())=x
+                lsit.append(x)
+
+         for x in findNums:                #从表中查找
+             if x in hash:
+                 result.append(hash(x))
+             else:
+                 result.append(-1)
+         return result
+                
+
+
+
+
+
+
+
+
+
+        
