@@ -24,7 +24,7 @@ class Solution(object):
             elif l == "":
                 s+="()"+"("+r+")"
             elif r == "":
-                s+="("+l+")"+"()"
+                s+="("+l+")"
             else:
                 s+="("+l+")"+"("+r+")"
             return s
